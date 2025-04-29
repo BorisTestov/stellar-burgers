@@ -18,8 +18,9 @@ export const Login: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(loginUserThunk({ email, password }));
-    navigate('/');
+    dispatch(loginUserThunk({ email, password })).then(() => {
+      navigate('/');
+    });
   };
 
   useEffect(() => {
